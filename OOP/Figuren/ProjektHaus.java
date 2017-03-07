@@ -24,7 +24,7 @@ public class ProjektHaus {
         this.wand = new Quadrat(250, "hellgrau", -30, 50);
         this.fenster = new Quadrat(70, "schwarz", 100, 80);
         this.dach = new Dreieck(320, 100, "rot", 95, -50);
-        this.wiese = new Quadrat (1050,"gruen",0,200);
+        this.wiese = new Quadrat(1050, "gruen", 0, 200);
         wiese.macheSichtbar();
         wand.macheSichtbar();
         fenster.macheSichtbar();
@@ -35,30 +35,26 @@ public class ProjektHaus {
 
     public void dachWeg() {
         int entfernung = 0;
-        while (entfernung < 170) {
-             wand.bewegeLangsamVertikal( 3);
-            dach.bewegeLangsamVertikal(-5);
-            dach.bewegeLangsamHorizontal(3);
-            fenster.bewegeLangsamVertikal( 1);
-            fenster.bewegeLangsamHorizontal(1);
+        while (entfernung < 115) {
+            wand.bewegeLangsamVertikal(-2);
             wand.aendereGroesse(250 + (entfernung * 8));
+            dach.bewegeLangsamVertikal(-2);
+            dach.aendereGroesse(100, 320 + (entfernung * 15));
             fenster.aendereGroesse(70 + (entfernung * 4));
-            dach.aendereGroesse(100 + (entfernung * 5), 320 + (entfernung * 15));
             entfernung++;
         }
-
+        dach.macheUnsichtbar();
     }
 
-    public void zoom() {
+
+    public void zoomFenster() {
         int entfernung = 0;
-        while (entfernung < 170) {
-            dach.bewegeLangsamVertikal(-5);
-            dach.bewegeLangsamHorizontal(3);
-            fenster.bewegeLangsamHorizontal(1);
-            wand.aendereGroesse(250 + (entfernung * 8));
-            fenster.aendereGroesse(70 + (entfernung * 4));
-            dach.aendereGroesse(100 + (entfernung * 5), 320 + (entfernung * 15));
+        while (entfernung < 50) {
+            fenster.bewegeLangsamHorizontal(-1);
+            fenster.bewegeLangsamVertikal(-1);
+            fenster.aendereGroesse(70 + (115* 4)+ (entfernung*4));
             entfernung++;
+
         }
 
     }
@@ -66,7 +62,9 @@ public class ProjektHaus {
 
     public static void main(String[] args) {
         ProjektHaus haus = new ProjektHaus();
-       // haus.zoom();
+        haus.dachWeg();
+        haus.zoomFenster();
+
     }
 
 } // end of ProjektHaus
