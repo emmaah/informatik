@@ -1,5 +1,3 @@
-import java.awt.*;
-
 /**
  * Beschreibung
  *
@@ -13,13 +11,14 @@ public class ProjektHaus {
     private Quadrat wand;
     private Quadrat fenster;
     private Dreieck dach;
-    private Dreieck koerper1;
-    private Dreieck koerper2;
-    private Kreis kopf1;
-    private Kreis kopf2;
+    private Kreis kopf;
+    private Dreieck koerper;
     private Quadrat wiese;
     private Kreis lampe;
     private Leinwand leinwand;
+    private Quadrat boden;
+    private Kreis auge1;
+    private Kreis auge2;
 
 
     // Ende Attribute
@@ -31,6 +30,11 @@ public class ProjektHaus {
         this.dach = new Dreieck(320, 100, "rot", 95, -50);
         this.wiese = new Quadrat(1000, "gruen", 0, 200);
         this.lampe = new Kreis(100, "orange", 400, -50);
+        this.boden = new Quadrat(850, "grau", 0, 400);
+        this.kopf = new Kreis(50, "gelb", -50, 320);
+        this.koerper = new Dreieck(50, 75, "rot", -25, 370);
+        this.auge1 = new Kreis(10, "blau", 360, 333);
+        this.auge2 = new Kreis(10, "blau", -20, 333);
         wiese.macheSichtbar();
         wand.macheSichtbar();
         fenster.macheSichtbar();
@@ -66,12 +70,23 @@ public class ProjektHaus {
 
     }
 
-    public void lampeEinschalten() {
+    public void zimmer() {
         lampe.macheSichtbar();
         leinwand.warte(3000);
         fenster.aendereFarbe("weiss");
         lampe.aendereFarbe("gelb");
-
+        kopf.macheSichtbar();
+        koerper.macheSichtbar();
+        auge2.macheSichtbar();
+        boden.macheSichtbar();
+        int entfernung = 0;
+        while (entfernung < 400) {
+            kopf.bewegeLangsamHorizontal(1);
+            koerper.bewegeLangsamHorizontal(1);
+            auge2.bewegeLangsamHorizontal(1);
+            entfernung++;
+        }
+        auge1.macheSichtbar();
 
     }
     // Ende Methoden
@@ -80,7 +95,7 @@ public class ProjektHaus {
         ProjektHaus haus = new ProjektHaus();
         haus.dachWeg();
         haus.zoomFenster();
-        haus.lampeEinschalten();
+        haus.zimmer();
 
     }
 
