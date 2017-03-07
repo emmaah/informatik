@@ -11,6 +11,10 @@ public class ProjektHaus {
     private Quadrat wand;
     private Quadrat fenster;
     private Dreieck dach;
+    private Dreieck koerper1;
+    private Dreieck koerper2;
+    private Kreis kopf1;
+    private Kreis kopf2;
     //private Quadrat tuer;
 
 
