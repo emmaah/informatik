@@ -84,7 +84,7 @@ public class Leinwand {
     fenster.pack();
     figuren = new ArrayList();
     figurZuShape = new HashMap();
-    raster = true;
+    raster = false;
   }
 
   /**
@@ -150,6 +150,12 @@ public class Leinwand {
       graphic.setColor(Color.red);
     else if (farbname.equals("schwarz"))
       graphic.setColor(Color.black);
+    else if (farbname.equals("hellgrau"))
+      graphic.setColor(Color.lightGray);
+    else if (farbname.equals("grau"))
+      graphic.setColor(Color.gray);
+    else if (farbname.equals("hellblau"))
+      graphic.setColor(Color.cyan);
     else if (farbname.equals("blau"))
       graphic.setColor(Color.blue);
     else if (farbname.equals("gelb"))
