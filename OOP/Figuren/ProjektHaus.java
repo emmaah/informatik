@@ -1,3 +1,5 @@
+import java.awt.*;
+
 /**
  * Beschreibung
  *
@@ -16,15 +18,19 @@ public class ProjektHaus {
     private Kreis kopf1;
     private Kreis kopf2;
     private Quadrat wiese;
+    private Kreis lampe;
+    private Leinwand leinwand;
 
 
     // Ende Attribute
 
     public ProjektHaus() {
+        this.leinwand = Leinwand.gibLeinwand();
         this.wand = new Quadrat(250, "hellgrau", -30, 50);
-        this.fenster = new Quadrat(70, "schwarz", 100, 80);
+        this.fenster = new Quadrat(70, "schwarz", 100, 100);
         this.dach = new Dreieck(320, 100, "rot", 95, -50);
-        this.wiese = new Quadrat(1050, "gruen", 0, 200);
+        this.wiese = new Quadrat(1000, "gruen", 0, 200);
+        this.lampe = new Kreis(100, "orange", 400, -50);
         wiese.macheSichtbar();
         wand.macheSichtbar();
         fenster.macheSichtbar();
@@ -35,7 +41,7 @@ public class ProjektHaus {
 
     public void dachWeg() {
         int entfernung = 0;
-        while (entfernung < 115) {
+        while (entfernung < 105) {
             wand.bewegeLangsamVertikal(-2);
             wand.aendereGroesse(250 + (entfernung * 8));
             dach.bewegeLangsamVertikal(-2);
@@ -44,18 +50,28 @@ public class ProjektHaus {
             entfernung++;
         }
         dach.macheUnsichtbar();
+        wiese.macheUnsichtbar();
     }
 
 
     public void zoomFenster() {
         int entfernung = 0;
-        while (entfernung < 50) {
+        while (entfernung < 100) {
             fenster.bewegeLangsamHorizontal(-1);
             fenster.bewegeLangsamVertikal(-1);
-            fenster.aendereGroesse(70 + (115* 4)+ (entfernung*4));
+            fenster.aendereGroesse(70 + (105 * 4) + (entfernung * 4));
             entfernung++;
 
         }
+
+    }
+
+    public void lampeEinschalten() {
+        lampe.macheSichtbar();
+        leinwand.warte(3000);
+        fenster.aendereFarbe("weiss");
+        lampe.aendereFarbe("gelb");
+
 
     }
     // Ende Methoden
@@ -64,6 +80,7 @@ public class ProjektHaus {
         ProjektHaus haus = new ProjektHaus();
         haus.dachWeg();
         haus.zoomFenster();
+        haus.lampeEinschalten();
 
     }
 

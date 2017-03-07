@@ -49,7 +49,7 @@ public class Leinwand {
     if (leinwandSingleton == null)
     {
       leinwandSingleton =
-        new Leinwand("Figuren Demo", 1050, 800, Color.white);
+        new Leinwand("Figuren Demo", 850, 850, Color.white);
     }
     leinwandSingleton.setzeSichtbarkeit(true);
     return leinwandSingleton;
@@ -158,6 +158,8 @@ public class Leinwand {
       graphic.setColor(Color.cyan);
     else if (farbname.equals("blau"))
       graphic.setColor(Color.blue);
+    else if (farbname.equals("orange"))
+      graphic.setColor(Color.orange);
     else if (farbname.equals("gelb"))
       graphic.setColor(Color.yellow);
     else if (farbname.equals("gruen"))
