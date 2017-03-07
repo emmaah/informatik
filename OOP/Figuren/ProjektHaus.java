@@ -24,33 +24,32 @@ public class ProjektHaus {
         wand.macheSichtbar();
         fenster.macheSichtbar();
         dach.macheSichtbar();
-       // tuer.macheSichtbar();
+        // tuer.macheSichtbar();
     }
 
     // Anfang Methoden
     public void zoom() {
         int entfernung = 0;
-       while (entfernung <170) {
-           // wand.bewegeLangsamVertikal( 3);
-           dach.bewegeLangsamVertikal( -5);
-          dach.bewegeLangsamHorizontal(3);
-           //fenster.bewegeLangsamVertikal( 1);
-           fenster.bewegeLangsamHorizontal(1);
-           // tuer.bewegeLangsamVertikal( 4);
-            wand.aendereGroesse( 250+(entfernung*8));
-            fenster.aendereGroesse( 70+(entfernung*4));
-            dach.aendereGroesse(100+(entfernung*5),320+(entfernung*15));
-           // tuer.aendereGroesse(95+entfernung);
-            entfernung ++;
+        while (entfernung < 170) {
+            // wand.bewegeLangsamVertikal( 3);
+            dach.bewegeLangsamVertikal(-5);
+            dach.bewegeLangsamHorizontal(3);
+            //fenster.bewegeLangsamVertikal( 1);
+            fenster.bewegeLangsamHorizontal(1);
+            // tuer.bewegeLangsamVertikal( 4);
+            wand.aendereGroesse(250 + (entfernung * 8));
+            fenster.aendereGroesse(70 + (entfernung * 4));
+            dach.aendereGroesse(100 + (entfernung * 5), 320 + (entfernung * 15));
+            // tuer.aendereGroesse(95+entfernung);
+            entfernung++;
         }
 
     }
     // Ende Methoden
 
-    public static void main(String [] args)
-    {
-       ProjektHaus haus = new ProjektHaus();
-       haus.zoom();
+    public static void main(String[] args) {
+        ProjektHaus haus = new ProjektHaus();
+        haus.zoom();
     }
 
 } // end of ProjektHaus
